@@ -1,0 +1,37 @@
+name: Example GitHub Action
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up AWS CLI
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1  # Set your desired AWS region
+
+      - name: Get secrets from AWS Secrets Manager
+        id: secrets
+        uses: aws-actions/aws-secretsmanager-get-secrets@v2
+        with:
+          secret-ids: |
+            POSTGRES_USER, username
+            POSTGRES_PASS, password
+            GOOGLE_CLIENT_SECRET, googleClientId
+
+      - name: Echo secrets
+        run: |
+          echo "POSTGRES_USER: ${{ steps.secrets.outputs.POSTGRES_USER }}"
+          echo "POSTGRES_PASS: ${{ steps.secrets.outputs.POSTGRES_PASS }}"
+          echo "GOOGLE_CLIENT_SECRET: ${{ steps.secrets.outputs.GOOGLE_CLIENT_SECRET }}"
+          echo "EC2_PRIV_KEY: ${{ secrets.EC2_PRIVATE_KEY }}"
