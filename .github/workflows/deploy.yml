@@ -25,11 +25,10 @@ jobs:
         uses: aws-actions/aws-secretsmanager-get-secrets@v2
         with:
           secret-ids: |
-             USERNAME, PASSWORD, GOOGLE_CLIENT_ID
+             USERNAME
     
       - name: Echo secrets to terminal
         run: |
             echo "USERNAME: ${{ steps.secrets.outputs.USERNAME }}"
-            echo "PASSWORD: ${{ steps.secrets.outputs.PASSWORD }}"
-            echo "GOOGLE_CLIENT_ID: ${{ steps.secrets.outputs.GOOGLE_CLIENT_ID }}"
+        
 
