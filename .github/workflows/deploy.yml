@@ -43,6 +43,7 @@ jobs:
       - name: Debug GALAXY_USERNAME (encoded)
         run: |
           echo "Base64: $(echo "${{ env.GALAXY_USERNAME }}" | base64)"
+          echo "cG9zdGdyZXMK" | base64 --decode
 
         
 
