@@ -52,7 +52,7 @@ jobs:
       - name: SSH into EC2 and Create Text File
         run: |
           ssh -o StrictHostKeyChecking=no -i galaxymatch-key.pem ubuntu@$ec2-13-245-11-129.af-south-1.compute.amazonaws.com"
-            echo '🚀 Hello from GitHub Actions!' > /home/ubuntu/github-actions-log.txt
+            echo '🚀 Hello from GitHub Actions!' > /home/ubuntu/github-actions-log.txt"
 
       
       
