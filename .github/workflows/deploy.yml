@@ -26,7 +26,7 @@ jobs:
         with:
           secret-ids: |
              GALAXY, prod/GalaxyMatch
-             parse-json-secrets: true
+          parse-json-secrets: true
     
       - name: Echo secrets to terminal
         run: |
