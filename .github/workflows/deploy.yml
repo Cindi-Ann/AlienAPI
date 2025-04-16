@@ -46,8 +46,10 @@ jobs:
           echo "Google Client ID is: ${{ env.GALAXY_GOOGLECLIENTID }}"
 
       - name: Write private key
+        env:
+          EC2_PRIVATE_KEY: ${{ secrets.EC2_PRIVATE_KEY }}
         run: |
-          echo "${{ env.EC2_PRIVATE_KEY }}" > galaxymatch-key.pem
+          echo $EC2_PRIVATE_KEY > galaxymatch-key.pem
           chmod 600 galaxymatch-key.pem
       - name: SSH into EC2 and Create Text File
         run: |
