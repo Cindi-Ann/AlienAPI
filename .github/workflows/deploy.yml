@@ -26,7 +26,7 @@ jobs:
         with:
           secret-ids: |
              GALAXY, prod/GalaxyMatch,
-             USERNAME, username
+             
 
       - name: Echo secrets to terminal
         run: |
@@ -34,7 +34,7 @@ jobs:
             
       - name: Echo the values
         run: |
-          echo "Username is: ${{env.USERNAME}}"
+          echo "Username is: ${{env.GALAXY_USERNAME}}"
           echo "Password is: $PASSWORD"
           echo "Google Client ID: $GOOGLECLIENTID"
           echo "Google Client Secret: $GOOGLECLIENTSECRET"
