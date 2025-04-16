@@ -25,7 +25,8 @@ jobs:
         uses: aws-actions/aws-secretsmanager-get-secrets@v2
         with:
           secret-ids: |
-             GALAXY, prod/GalaxyMatch
+             GALAXY, prod/GalaxyMatch,
+             USERNAME, username
 
       - name: Echo secrets to terminal
         run: |
@@ -33,7 +34,7 @@ jobs:
             
       - name: Echo the values
         run: |
-          echo "Username is: ${{env.GALAXY.USERNAME}}"
+          echo "Username is: ${{env.USERNAME}}"
           echo "Password is: $PASSWORD"
           echo "Google Client ID: $GOOGLECLIENTID"
           echo "Google Client Secret: $GOOGLECLIENTSECRET"
