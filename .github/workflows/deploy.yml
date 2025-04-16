@@ -25,7 +25,8 @@ jobs:
         uses: aws-actions/aws-secretsmanager-get-secrets@v2
         with:
           secret-ids: |
-             GALAXY, prod/GalaxyMatch,
+             GALAXY, prod/GalaxyMatch
+          parse-json-secrets: true
              
 
       - name: Echo secrets to terminal
