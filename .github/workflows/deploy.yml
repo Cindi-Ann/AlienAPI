@@ -33,16 +33,19 @@ jobs:
         run: |
             echo "${{ env.GALAXY }}"
             
-      - name: Echo the values
+      - name: Echo the secrets
         run: |
-          echo "Username is: ${{env.GALAXY_USERNAME}}"
-          echo "Password is: $PASSWORD"
-          echo "Google Client ID: $GOOGLECLIENTID"
-          echo "Google Client Secret: $GOOGLECLIENTSECRET"
+          echo "Username is: ${{ env.USERNAME }}"
+          echo "Password is: ${{ env.PASSWORD }}"
+          echo "Database Engine is: ${{ env.ENGINE }}"
+          echo "Host is: ${{ env.HOST }}"
+          echo "Port is: ${{ env.PORT }}"
+          echo "DB Instance Identifier is: ${{ env.DBINSTANCEIDENTIFIER }}"
+          echo "Google Client ID is: ${{ env.GOOGLECLIENTID }}"
           
       - name: Debug GALAXY_USERNAME (encoded)
         run: |
-          echo "Base64: $(echo "${{ env.GALAXY_USERNAME }}" | base64)"
+          echo "Base64: $(echo "${{  env.GOOGLECLIENTID }}" | base64)"
           echo "cG9zdGdyZXMK" | base64 --decode
 
         
