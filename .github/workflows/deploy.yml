@@ -26,9 +26,7 @@ jobs:
         uses: aws-actions/aws-secretsmanager-get-secrets@v2
         with:
           secret-ids: |
-            POSTGRES_USER, username
-            POSTGRES_PASS, password
-            GOOGLE_CLIENT_SECRET, googleClientId
+            username, password, googleClientId
 
       - name: Echo secrets
         run: |
