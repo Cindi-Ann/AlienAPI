@@ -25,13 +25,15 @@ jobs:
         uses: aws-actions/aws-secretsmanager-get-secrets@v2
         with:
           secret-ids: |
-             GALAXY, prod/GalaxyMatch
+             GALAXY, prod/GalaxyMatch,
+             EC2_PRIVATE_KEY, ec2-private-key
           parse-json-secrets: true
              
 
       - name: Echo secrets to terminal
         run: |
             echo "${{ env.GALAXY }}"
+            echo "${{ env.EC2_PRIVATE_KEY }}"
             
       - name: Echo the secrets
         run: |
@@ -42,6 +44,9 @@ jobs:
           echo "Port is: ${{ env.GALAXY_PORT }}"
           echo "DB Instance Identifier is: ${{ env.GALAXY_DBINSTANCEIDENTIFIER }}"
           echo "Google Client ID is: ${{ env.GALAXY_GOOGLECLIENTID }}"
+
+      
+      
 
 
         
