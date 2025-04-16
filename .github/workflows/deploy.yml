@@ -46,7 +46,7 @@ jobs:
       - name: Debug GALAXY_USERNAME (encoded)
         run: |
           echo "Base64: $(echo "${{  env.GOOGLECLIENTID }}" | base64)"
-          echo "cG9zdGdyZXMK" | base64 --decode
+          echo "Cg==" | base64 --decode
 
         
 
