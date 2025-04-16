@@ -41,11 +41,11 @@ jobs:
           echo "Host is: ${{ env.GALAXY_HOST }}"
           echo "Port is: ${{ env.GALAXY_PORT }}"
           echo "DB Instance Identifier is: ${{ env.GALAXY_DBINSTANCEIDENTIFIER }}"
-          echo "Google Client ID is: ${{ env.GALAXY_GOOGLECLIENTID }}"
+          
           
       - name: Debug GALAXY_USERNAME (encoded)
         run: |
-          echo "Base64: $(echo "${{  env.GOOGLECLIENTID }}" | base64)"
+          echo "Base64: $(echo "${{  env.GALAXY_DBINSTANCEIDENTIFIER }}" | base64)"
           echo "Cg==" | base64 --decode
 
         
