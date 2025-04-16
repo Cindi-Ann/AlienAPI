@@ -36,12 +36,12 @@ jobs:
       - name: Echo the secrets
         run: |
           echo "Username is: ${{ env.GALAXY_USERNAME }}"
-          echo "Password is: ${{ env.PASSWORD }}"
-          echo "Database Engine is: ${{ env.ENGINE }}"
-          echo "Host is: ${{ env.HOST }}"
-          echo "Port is: ${{ env.PORT }}"
-          echo "DB Instance Identifier is: ${{ env.DBINSTANCEIDENTIFIER }}"
-          echo "Google Client ID is: ${{ env.GOOGLECLIENTID }}"
+          echo "Password is: ${{ env.GALAXY_PASSWORD }}"
+          echo "Database Engine is: ${{ env.GALAXY_ENGINE }}"
+          echo "Host is: ${{ env.GALAXY_HOST }}"
+          echo "Port is: ${{ env.GALAXY_PORT }}"
+          echo "DB Instance Identifier is: ${{ env.GALAXY_DBINSTANCEIDENTIFIER }}"
+          echo "Google Client ID is: ${{ env.GALAXY_GOOGLECLIENTID }}"
 
 
         
