@@ -29,6 +29,6 @@ jobs:
     
       - name: Echo secrets to terminal
         run: |
-            echo "${{ env.GALAXY }}"
+            echo "${{ env.GALAXY.username }}"
         
 
