@@ -25,10 +25,10 @@ jobs:
         uses: aws-actions/aws-secretsmanager-get-secrets@v2
         with:
           secret-ids: |
-             prod/GalaxyMatch
+             prod/GalaxyMatch, GALAXY
     
       - name: Echo secrets to terminal
         run: |
-            echo "USERNAME: ${{ env.PROD_GALAXYMATCH_USERNAME }}"
+            echo "${{ env.GALAXY_USERNAME }}"
         
 
